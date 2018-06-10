@@ -1,0 +1,40 @@
+.modal {
+	display: block;
+}
+
+.txtbxReq {
+	border: #e03838 1px solid;
+}
+
+.rangelbl {
+	float: right;
+	background: black;
+	border-radius: 7px;
+	padding: 4px;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+}
+
+.float-left {
+	float: left;
+}
+body{
+	background-color:#fff;
+}
+#header-div{
+	background-color:#2a2a2a;
+	color:#fff;
+}
+#advanced-options{
+	margin-top:-22px;
+	background-color:#fafafa;
+	border-bottom:1px solid #2a2a2a;
+}
+#main-content{
+	background-color:#fafafa;
+}
+.error-div{
+	margin:15px 0px -42px 0px;
+	text-align: center;
+}

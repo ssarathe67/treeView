@@ -1,0 +1,71 @@
+<div class="modal bs-example-modal-lg">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" ng-show="node.id">Update {{node.nodeName}}</h4>
+                <h4 class="modal-title" ng-hide="node.id">Add New Factory</h4>
+            </div>
+			
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-xs-6">
+						<label>Factory Name</label>
+						<input type="text" class="form-control" placeholder="Please Enter Factory Name" name="nodeName"
+							ng-model="factory.nodeName" 
+							ng-class="{'txtbxReq': (validationError && (factory.nodeName.length<=0 || factory.nodeName == undefined))}" 
+						>
+					</div>
+					<div class="col-xs-6">
+						<label>Child count</label>
+						<input type="text" class="form-control" placeholder="Max 15" name="childcount"
+							numbers-only
+							ng-model="factory.childcount" 
+							ng-class="{'txtbxReq': (validationError && (factory.childcount.length<=0 || factory.childcount == undefined))}" 
+							>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<label>Range From</label>
+						<input type="text" class="form-control" placeholder="Children Range From" name="upperBound"
+							numbers-only
+							ng-model="factory.upperBound" 
+							ng-class="{'txtbxReq': (validationError && (factory.upperBound.length<=0 || factory.upperBound == undefined))}"
+							>
+					</div>
+					<div class="col-xs-6">
+						<label>Range To</label>
+						<input type="text" class="form-control" placeholder="Children Range To" name="lowerBound"
+							numbers-only
+							ng-model="factory.lowerBound" 
+							ng-class="{'txtbxReq': (validationError && (factory.lowerBound.length<=0 || factory.lowerBound == undefined))}"
+							>
+					</div>
+				</div>
+				<div class="row" ng-show="validationError && (errorMsg.length>0)">
+					<div class="col-xs-12 error-div">
+						<div class="alert alert-danger">{{errorMsg}}</div>
+					</div>
+					
+				</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-hide="confirmDecision" ng-click="cancel()">Close</button>
+                <button type="button" class="btn btn-primary" ng-hide="confirmDecision" ng-click="processFactory()">
+					<span ng-show="factory.id">Update</span>
+					<span ng-hide="factory.id">Add</span>
+				</button>
+                <button type="button" class="btn btn-danger" ng-hide="confirmDecision || !factory.id" ng-click="confirmDecision=true">Delete</button>
+				<!-- Confirm Delete -->
+				<button type="button" class="btn btn-danger" ng-show="confirmDecision" ng-click="deleteFactory()">Confirm Delete</button>
+				<button type="button" class="btn btn-default" ng-show="confirmDecision" ng-click="confirmDecision=false">Cancel</button>
+				<p ng-show="confirmDecision" class="alertNote">
+					Note: {{node.nodeName}} factory will be <strong>permenently deleted</strong> and cannot not be recovered.
+				</p>
+				
+            </div>
+			
+        </div>
+    </div>
+</div>
